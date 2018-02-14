@@ -91,7 +91,7 @@ class ControllerExtensionWalleeEvent extends Wallee\Controller\AbstractEvent {
 			return;
 		}
 		
-		if (\WalleeHelper::isCompletableState($transaction_info->getState())) {
+		if (\WalleeHelper::isEditableState($transaction_info->getState())) {
 			// changing line items still permitted
 			return;
 		}

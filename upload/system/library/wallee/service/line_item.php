@@ -314,7 +314,6 @@ class LineItem extends AbstractService {
 		
 		$tax_amount = $this->addTaxesToLineItem($line_item, $amount_excluding_tax, $product['tax_class_id']);
 		$line_item->setAmountIncludingTax(\WalleeHelper::instance($this->registry)->formatAmount($amount_excluding_tax + $tax_amount));
-		// 				$amount_excluding_tax + $tax_amount);
 		
 		return $this->cleanLineItem($line_item);
 	}
