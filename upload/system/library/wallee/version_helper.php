@@ -122,7 +122,7 @@ class WalleeVersionHelper {
 		$status = array(
 			'payment_wallee_status' => $post['wallee_status']
 		);
-		$registry->get('model_setting_setting')->editSetting('payment_wallee', $status, $store['id']);
+		$registry->get('model_setting_setting')->editSetting('payment_wallee', $status, $post['id']);
 	}
 	
 	public static function extractPaymentSettingCode($code) {
