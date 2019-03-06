@@ -28,10 +28,6 @@ class WalleeVersionHelper {
 				'file' => 'WalleeQuickCheckoutCompatibility.ocmod.xml',
 				'default_status' => 0 
 			),
-			'WalleeJournalCompatibility' => array(
-				'file' => 'WalleeJournalCompatibility.ocmod.xml',
-				'default_status' => 0
-			),
 			'WalleeXFeeProCompatibility' => array(
 				'file' => 'WalleeXFeeProCompatibility.ocmod.xml',
 				'default_status' => 0
@@ -82,7 +78,6 @@ class WalleeVersionHelper {
 		);
 		
 		$sort_order = array();
-		
 		$results = $registry->get('model_setting_extension')->getExtensions('total');
 		foreach ($results as $key => $value) {
 			$sort_order[$key] = $registry->get('config')->get('total_' . $value['code'] . '_sort_order');
