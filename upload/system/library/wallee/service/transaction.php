@@ -1,4 +1,13 @@
 <?php
+/**
+ * Wallee OpenCart
+ *
+ * This OpenCart module enables to process payments with Wallee (https://www.wallee.com).
+ *
+ * @package Whitelabelshortcut\Wallee
+ * @author wallee AG (https://www.wallee.com)
+ * @license http://www.apache.org/licenses/LICENSE-2.0  Apache Software License (ASL 2.0)
+ */
 
 namespace Wallee\Service;
 
@@ -486,6 +495,11 @@ class Transaction extends AbstractService {
 
 	private function assembleAddress($source, $prefix = ''){
 		$address = new \Wallee\Sdk\Model\AddressCreate();
+		$customer = \WalleeHelper::instance($this->registry)->getCustomer();
+
+		if (isset($customer['email'])) {
+			$address->setEmailAddress($this->getFixedSource($customer, 'email', 150));
+		}
 		
 		if (isset($source[$prefix . 'city'])) {
 			$address->setCity($this->getFixedSource($source, $prefix . 'city', 100, false));
