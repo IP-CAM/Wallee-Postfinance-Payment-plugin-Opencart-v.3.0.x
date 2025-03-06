@@ -25,7 +25,7 @@ namespace Wallee\Sdk\Http;
  *
  * @category Class
  * @package  Wallee\Sdk\Http
- * @author   wallee AG
+ * @author   customweb GmbH
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache License v2
  */
 final class HttpResponse {

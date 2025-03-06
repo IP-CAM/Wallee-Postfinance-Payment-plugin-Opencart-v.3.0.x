@@ -2,10 +2,10 @@
 /**
  * Wallee OpenCart
  *
- * This OpenCart module enables to process payments with Wallee (https://www.wallee.com).
+ * This OpenCart module enables to process payments with Wallee (wallee164).
  *
  * @package Whitelabelshortcut\Wallee
- * @author wallee AG (https://www.wallee.com)
+ * @author wallee144 (wallee164)
  * @license http://www.apache.org/licenses/LICENSE-2.0  Apache Software License (ASL 2.0)
  */
 require_once (DIR_SYSTEM . 'library/wallee/autoload.php');
@@ -13,7 +13,7 @@ require_once (DIR_SYSTEM . 'library/wallee/autoload.php');
 /**
  * Versioning helper which offers implementations depending on opencart version. (Internal) Some version differences may be handled via rewriter.
  *
- * @author wallee AG (https://www.wallee.com)
+ * @author wallee144 (wallee164)
  *
  */
 class WalleeVersionHelper {

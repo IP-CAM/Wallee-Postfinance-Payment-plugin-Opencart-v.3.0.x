@@ -29,7 +29,7 @@ use \Wallee\Sdk\ObjectSerializer;
  * @category    Class
  * @description The entity property export request contains the information required to create an export of a list of entities.
  * @package     Wallee\Sdk
- * @author      wallee AG
+ * @author      customweb GmbH
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache License v2
  */
 class EntityExportRequest implements ModelInterface, ArrayAccess

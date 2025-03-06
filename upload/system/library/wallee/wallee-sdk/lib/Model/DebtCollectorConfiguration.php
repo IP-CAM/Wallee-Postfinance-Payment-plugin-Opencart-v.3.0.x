@@ -29,7 +29,7 @@ use \Wallee\Sdk\ObjectSerializer;
  * @category    Class
  * @description The debt collector configuration defines the behavior of the collection process for a particular collector.
  * @package     Wallee\Sdk
- * @author      wallee AG
+ * @author      customweb GmbH
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache License v2
  */
 class DebtCollectorConfiguration implements ModelInterface, ArrayAccess

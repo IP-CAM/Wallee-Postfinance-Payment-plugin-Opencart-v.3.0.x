@@ -2,10 +2,10 @@
 /**
  * Wallee OpenCart
  *
- * This OpenCart module enables to process payments with Wallee (https://www.wallee.com).
+ * This OpenCart module enables to process payments with Wallee (wallee164).
  *
  * @package Whitelabelshortcut\Wallee
- * @author wallee AG (https://www.wallee.com)
+ * @author wallee144 (wallee164)
  * @license http://www.apache.org/licenses/LICENSE-2.0  Apache Software License (ASL 2.0)
  */
 require_once modification(DIR_SYSTEM . 'library/wallee/helper.php');
@@ -14,7 +14,7 @@ class ControllerExtensionWalleeCron extends Controller {
 
 	public function index(){
 		$this->endRequestPrematurely();
-		
+
 		if (isset($this->request->get['security_token'])) {
 			$security_token = $this->request->get['security_token'];
 		}
@@ -22,9 +22,9 @@ class ControllerExtensionWalleeCron extends Controller {
 			\WalleeHelper::instance($this->registry)->log('Cron called without security token.', \WalleeHelper::LOG_ERROR);
 			die();
 		}
-		
+
 		\Wallee\Entity\Cron::cleanUpCronDB($this->registry);
-		
+
 		try {
 			\WalleeHelper::instance($this->registry)->dbTransactionStart();
 			$result = \Wallee\Entity\Cron::setProcessing($this->registry, $security_token);
@@ -35,15 +35,15 @@ class ControllerExtensionWalleeCron extends Controller {
 		}
 		catch (Exception $e) {
 			// 1062 is mysql duplicate constraint error. This is expected and doesn't need to be logged.
-			if (strpos('1062', $e->getMessage()) === false && strpos('constraint_key', $e->getMessage()) === false) {
+			if (strpos($e->getMessage(),'1062',) === false && strpos($e->getMessage(),'constraint_key') === false) {
 				\WalleeHelper::instance($this->registry)->log('Updating cron failed: ' . $e->getMessage(), \WalleeHelper::LOG_ERROR);
 			}
 			\WalleeHelper::instance($this->registry)->dbTransactionRollback();
 			die();
 		}
-		
+
 		$errors = $this->runTasks();
-		
+
 		try {
 			\WalleeHelper::instance($this->registry)->dbTransactionStart();
 			$result = \Wallee\Entity\Cron::setComplete($this->registry, $security_token, implode('. ', $errors));

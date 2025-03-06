@@ -30,7 +30,7 @@ use Wallee\Sdk\Service\PaymentMethodService;
  *
  * @category Class
  * @package  Wallee\Sdk
- * @author   wallee AG
+ * @author   customweb GmbH
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache License v2
  */
 final class ApiClientTest extends TestCase
